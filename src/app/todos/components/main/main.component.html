@@ -1,5 +1,5 @@
-<section class="main" [ngClass]="{ hidden: noTodosClass() }">
-  <input
+<section  [class.dark] = "counter() === 10">
+ <!-- <input
     id="toggle-all"
     class="toggle-all"
     type="checkbox"
@@ -14,5 +14,15 @@
       [isEditing]="editingId === todo.id"
       (setEditingId)="setEditingId($event)"
     ></app-todos-todo>
-  </ul>
+  </ul>-->
+  <div class="counter">
+    
+    <div class="counter-icon">
+        <span><i class="fa-solid fa-calculator"></i></span>
+    </div>
+    <h3>Live Counter</h3>
+    <span class="counter-value"> {{counter()}}</span>
+ 
+</div>
+ 
 </section>

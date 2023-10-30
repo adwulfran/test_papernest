@@ -1,5 +1,21 @@
-<div class="todoapp">
-  <app-todos-header></app-todos-header>
-  <app-todos-main></app-todos-main>
-  <app-todos-footer></app-todos-footer>
+<div class="wrapper">
+  <div class="nav"></div>
+  <div class="sidebar">
+    <ul>
+      <li>
+        <a routerLink="/up" routerLinkActive="active">
+          Go to up
+        </a>
+      </li>
+      <li>
+        <a routerLink="/down" routerLinkActive="active">
+          Go to down
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="main">
+    <app-main></app-main>
+    <router-outlet></router-outlet>
+  </div>
 </div>

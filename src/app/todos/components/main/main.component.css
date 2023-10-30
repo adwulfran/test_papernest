@@ -1,0 +1,58 @@
+:host{ --main-color : #09BB7F; --color1 : #50aefb;
+    --color2 : #3184C9; }
+
+.counter{
+    color: #999;
+    font-family: 'Hind', sans-serif;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+.counter .counter-icon{
+    font-size: 25px;
+    line-height: 25px;
+    margin: 0 0 40px;
+}
+.counter .counter-value{
+    color: var(--color2);
+    background-color: #fff;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 30px;
+    padding: 7px 0 3px;
+    margin: 0 0 40px;
+    display: block;
+    position: relative;
+}
+.counter .counter-value:before{
+    content: '';
+    background: linear-gradient(var(--color1),var(--color2));
+    height: 70px;
+    width: 70px;
+    transform: translateX(-50%) translateY(-50%) rotate(45deg);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: -1;
+}
+.counter h3{
+    font-size: 20px;
+    font-weight: 500;
+    text-transform: capitalize;
+    margin: 0 0 10px;
+}
+.counter.pink{
+    --color1: #ff82e0;
+    --color2: #de66c0;
+}
+.counter.green{
+    --color1: #2cdae3;
+    --color2: #1EA8B0;
+}
+.counter.purple{
+    --color1: #a89ef8;
+    --color2: #8577F3;
+}
+@media screen and (max-width:990px){
+    .counter{ margin-bottom: 40px; }
+}   

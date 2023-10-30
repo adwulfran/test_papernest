@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { TodosService } from '../../services/todos.service';
+import { UnaryService } from '../../services/unary.service';
 
 @Component({
   selector: 'app-todos-header',
@@ -7,16 +7,9 @@ import { TodosService } from '../../services/todos.service';
   standalone: true,
 })
 export class HeaderComponent {
-  todosService = inject(TodosService);
-  text: string = '';
+  unaryService = inject(UnaryService);
 
-  changeText(event: Event): void {
-    const target = event.target as HTMLInputElement;
-    this.text = target.value;
-  }
+  counter = this.unaryService.counter;
 
-  addTodo(): void {
-    this.todosService.addTodo(this.text);
-    this.text = '';
-  }
+
 }

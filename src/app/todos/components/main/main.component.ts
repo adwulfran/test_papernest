@@ -1,34 +1,29 @@
-import { Component, computed, inject } from '@angular/core';
-import { TodosService } from '../../services/todos.service';
+import { Component, OnInit, WritableSignal, computed, inject } from '@angular/core';
+import { UnaryService } from '../../services/unary.service';
 import { CommonModule } from '@angular/common';
 import { FilterEnum } from '../../types/filter.enum';
 import { TodoComponent } from '../todo/todo.component';
+import { Router } from '@angular/router';
+import { Observable, Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-todos-main',
+  selector: 'app-main',
   templateUrl: './main.component.html',
+  styleUrls: ['./main.component.css'],
   standalone: true,
   imports: [CommonModule, TodoComponent],
 })
-export class MainComponent {
-  todosService = inject(TodosService);
+export class MainComponent implements OnInit {
   editingId: string | null = null;
+  counter!: WritableSignal<number>;
 
-  visibleTodos = computed(() => {
-    const todos = this.todosService.todosSig();
-    const filter = this.todosService.filterSig();
+  constructor(public todosService: UnaryService) {
+    
+  }
+  ngOnInit() {
+    this.counter = this.todosService.counter;
 
-    if (filter === FilterEnum.active) {
-      return todos.filter((todo) => !todo.isCompleted);
-    } else if (filter === FilterEnum.completed) {
-      return todos.filter((todo) => todo.isCompleted);
-    }
-    return todos;
-  });
-  isAllTodosSelected = computed(() =>
-    this.todosService.todosSig().every((todo) => todo.isCompleted)
-  );
-  noTodosClass = computed(() => this.todosService.todosSig().length === 0);
+  }
 
   setEditingId(editingId: string | null): void {
     this.editingId = editingId;
@@ -36,6 +31,5 @@ export class MainComponent {
 
   toggleAllTodos(event: Event): void {
     const target = event.target as HTMLInputElement;
-    this.todosService.toggleAll(target.checked);
   }
 }

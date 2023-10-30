@@ -1,11 +1,15 @@
+
 <header class="header">
-  <h1>todos</h1>
-  <input
-    class="new-todo"
-    placeholder="What needs to be done?"
-    autoFocus
-    [value]="text"
-    (keyup)="changeText($event)"
-    (keyup.enter)="addTodo()"
-  />
+  <ul>
+    <li>
+      <a routerLink="/up" routerLinkActive="active">
+        Go to up
+      </a>
+    </li>
+    <li>
+      <a routerLink="/down" routerLinkActive="active">
+        Go to down
+      </a>
+    </li>
+  </ul>
 </header>

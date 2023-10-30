@@ -12,7 +12,7 @@ import {
 } from '@angular/core';
 import { TodoInterface } from '../../types/todo.interface';
 import { CommonModule } from '@angular/common';
-import { TodosService } from '../../services/todos.service';
+import { UnaryService } from '../../services/unary.service';
 
 @Component({
   selector: 'app-todos-todo',
@@ -27,7 +27,7 @@ export class TodoComponent implements OnInit, OnChanges {
 
   @ViewChild('textInput') textInput?: ElementRef;
 
-  todosService = inject(TodosService);
+  todosService = inject(UnaryService);
   editingText: string = '';
 
   ngOnInit(): void {
@@ -47,20 +47,5 @@ export class TodoComponent implements OnInit, OnChanges {
     this.editingText = value;
   }
 
-  changeTodo(): void {
-    this.todosService.changeTodo(this.todo.id, this.editingText);
-    this.setEditingId.emit(null);
-  }
 
-  setTodoInEditMode(): void {
-    this.setEditingId.emit(this.todo.id);
-  }
-
-  removeTodo(): void {
-    this.todosService.removeTodo(this.todo.id);
-  }
-
-  toggleTodo(): void {
-    this.todosService.toggleTodo(this.todo.id);
-  }
 }
