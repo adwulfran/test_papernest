@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { UnaryService } from '../../services/unary.service';
 import { CommonModule } from '@angular/common';
 import { ButtonComponent } from '../button/button.component';
@@ -10,11 +10,10 @@ import { ButtonComponent } from '../button/button.component';
   imports: [CommonModule, ButtonComponent],
 })
 export class UpCounterComponent {
-
-  constructor(private todosService: UnaryService) { }
+  unaryService = inject(UnaryService);
 
   incrementCounter() {
-    this.todosService.incrementCounter();
+    this.unaryService.incrementCounter();
   }
 
 }

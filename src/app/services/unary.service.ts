@@ -1,5 +1,5 @@
 import { Injectable, effect, signal } from '@angular/core';
-import {  Subject, scan } from 'rxjs';
+import {  Subject, filter, scan } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -16,9 +16,10 @@ export class UnaryService {
     }
 
     this.numberOfActions$.pipe(
-      scan((previous: number, increment) => previous + increment),
+      scan((previous, increment) => previous + increment),
+      filter((r) => r % 30 == 0)
       )
-      .subscribe((res) => this.multiplyCounterByTwo(res));
+      .subscribe(() => this.multiplyCounterByTwo());
   }
 
   useEffect = effect(() => {
@@ -35,10 +36,8 @@ export class UnaryService {
     this.numberOfActions$.next(1);
   }
 
-  multiplyCounterByTwo(res:number) {
-    if (res % 30 == 0) {
+  multiplyCounterByTwo() {
       this.counter.update((counter) => counter * 2);
-    }
   }
 }
 

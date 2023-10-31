@@ -1,1 +1,30 @@
-<app-todos></app-todos>
+<div class="wrapper">
+  <div class="nav"></div>
+  <div class="sidebar">
+    <div class="container">
+      <ul>
+        <li>
+          <a routerLink="/up">
+            <div class="icon-text" routerLinkActive="active">
+              <mat-icon>trending_up</mat-icon>
+              <span class="link-text">Go to up</span>
+            </div>
+          </a>
+
+        </li>
+        <li>
+          <a routerLink="/down">
+            <div class="icon-text" routerLinkActive="active">
+              <mat-icon>trending_down</mat-icon>
+              <span class="link-text">Go to down </span>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="main">
+    <app-main></app-main>
+    <router-outlet></router-outlet>
+  </div>
+</div>

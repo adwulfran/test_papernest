@@ -1,0 +1,32 @@
+a {
+    text-decoration: none;
+    padding-left: 10px;
+    font-size: 1.1rem;
+    color: #000000de;
+}
+
+.active {
+    background-color: #00000014;
+    color: #6200ee !important;
+}
+
+ul {
+    padding:0
+}
+
+
+li {
+    list-style-type: none;
+   
+}
+
+.icon-text {
+    display: flex;
+    align-items: center;
+    padding-left:15px;
+}
+
+.link-text{
+    padding-left:9px;
+}
+
