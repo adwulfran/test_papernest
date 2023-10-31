@@ -1,8 +1,9 @@
 a {
     text-decoration: none;
     padding-left: 10px;
-    font-size: 1.1rem;
     color: #000000de;
+    font-family:Roboto,sans-serif;
+    font-size:0.8rem;
 }
 
 .active {
@@ -11,7 +12,7 @@ a {
 }
 
 ul {
-    padding:0
+    padding:0;
 }
 
 

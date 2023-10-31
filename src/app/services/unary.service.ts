@@ -36,6 +36,10 @@ export class UnaryService {
     this.numberOfActions$.next(1);
   }
 
+  resetCounter() {
+    this.counter.update(() => 0)
+  }
+
   multiplyCounterByTwo() {
       this.counter.update((counter) => counter * 2);
   }

@@ -4,6 +4,14 @@
     width: 50%;
 }
 
+.counter-positive-10 {
+    color: #e74c3c
+}
+
+.counter-negative-10 {
+    color: #27ae60
+}
+
 mat-icon {
     font-size: 30px;
     overflow: visible;

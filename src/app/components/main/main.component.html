@@ -1,3 +1,4 @@
+<div [ngClass]="{'counter-positive-10': counter() >= 10, 'counter-negative-10' : counter() <= -10 }">
 <mat-card class="counter-card">
   <mat-card-header>
     <div><mat-icon>calculate</mat-icon></div>
@@ -9,3 +10,4 @@
     </h1>
   </mat-card-content>
 </mat-card>
+</div>

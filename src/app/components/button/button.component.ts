@@ -1,17 +1,17 @@
-import { Component, Output, EventEmitter, ViewChild, ElementRef, AfterViewInit, OnDestroy } from '@angular/core';
+import { Component, Output, EventEmitter, ViewChild, ElementRef, AfterViewInit, OnDestroy, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Subscription, debounceTime, fromEvent } from 'rxjs';
 
 @Component({
     selector: 'app-button',
     templateUrl: './button.component.html',
-    standalone: true,
-    imports: [CommonModule],
+    styleUrls: ['./button.component.css'],
 })
 export class ButtonComponent implements AfterViewInit, OnDestroy {
+    @Input() textBtn: string | undefined;
     @Output() operation = new EventEmitter<string>();
 
-    @ViewChild('operationBtn') operationBtn: ElementRef | undefined;
+    @ViewChild('operationBtn', { read: ElementRef }) operationBtn!: ElementRef | undefined;
 
     private btnSubscription: Subscription | undefined;
 
