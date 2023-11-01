@@ -8,8 +8,8 @@ export class UnaryService {
   public counter = signal(0);
   public coeffX: number = 1;
 
-  private actionsStream$ = new Subject<number>();
-  public actions: number = 0;
+  private _actionsSubject$ = new Subject<number>();
+  public actions$ = this._actionsSubject$.pipe(scan((previous, increment) => previous + increment));
 
   constructor() {
     const counterLocalStorage = localStorage.getItem('count');
@@ -18,12 +18,7 @@ export class UnaryService {
       this.counter.set(Number(counterLocalStorage))
     }
 
-    this.actionsStream$.pipe(
-      scan((previous, increment) => previous + increment),
-      tap((res) => this.actions = res),
-      filter((res) => res % 30 == 0)
-    )
-      .subscribe(() => this.multiplyCoeffByTwo());
+    this.actions$.pipe(filter((res) => res % 30 == 0)).subscribe(() => this.multiplyCoeffByTwo());
   }
 
   useEffect = effect(() => {
@@ -32,12 +27,12 @@ export class UnaryService {
 
   decrementCounter() {
     this.counter.update((counter) => counter - this.coeffX);
-    this.actionsStream$.next(1);
+    this._actionsSubject$.next(1);
   }
 
   incrementCounter() {
     this.counter.update((counter) => counter + this.coeffX);
-    this.actionsStream$.next(1);
+    this._actionsSubject$.next(1);
   }
 
   resetCounter() {

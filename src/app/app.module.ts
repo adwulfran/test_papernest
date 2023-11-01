@@ -19,6 +19,7 @@ import { UpCounterComponent } from './components/up/up-counter.component';
 import { DownCounterComponent } from './components/down/down-counter.component';
 import { ResetComponent } from './components/reset/reset.component';
 import { FormsModule } from '@angular/forms';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 @NgModule({
     declarations: [
@@ -40,7 +41,8 @@ import { FormsModule } from '@angular/forms';
         MatInputModule,
         MatFormFieldModule,
         MatNativeDateModule,
-        FormsModule
+        FormsModule,
+        MatGridListModule
     ],
     bootstrap: [AppComponent]
 })

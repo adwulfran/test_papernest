@@ -1,7 +1,5 @@
 import { Component, OnInit, WritableSignal, inject } from '@angular/core';
 import { UnaryService } from '../../services/unary.service';
-import { CommonModule } from '@angular/common';
-
 
 @Component({
   selector: 'app-main',
@@ -10,14 +8,11 @@ import { CommonModule } from '@angular/common';
 })
 export class MainComponent implements OnInit {
   unaryService = inject(UnaryService);
-  editingId: string | null = null;
   counter!: WritableSignal<number>;
 
   constructor() { }
   
   ngOnInit() {
     this.counter = this.unaryService.counter;
-
   }
-
 }

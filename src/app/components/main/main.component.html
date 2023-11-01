@@ -1,17 +1,66 @@
-<div [ngClass]="{'counter-positive-10': counter() >= 10, 'counter-negative-10' : counter() <= -10 }">
-<mat-card class="counter-card">
-  <mat-card-header>
-    <div><mat-icon>calculate</mat-icon></div>
-    <div><mat-card-title>COUNTER</mat-card-title></div>
-  </mat-card-header>
-  <mat-card-content>
-    <h1>
-      {{counter()}}
-    </h1>
-  </mat-card-content>
-</mat-card>
+
+  <div [ngClass]="{'counter-positive-10': counter() >= 10, 'counter-negative-10' : counter() <= -10 }">
+    <mat-card class="counter-card">
+      <mat-card-header>
+        <div><mat-icon>calculate</mat-icon></div>
+        <div><mat-card-title>COUNTER</mat-card-title></div>
+      </mat-card-header>
+      <mat-card-content>
+
+        <div class="container">
+          <div class="counter">
+            <h1>
+              {{counter()}}
+            </h1>
+          </div>
+          <div class="others">
+            <div>Nb Actions</div>
+            <div>Coefficient X</div>
+          </div>
+          <div class="others">
+            <div>{{ (unaryService.actions$ | async) || 0}}</div>
+            <div> {{ unaryService.coeffX}}</div>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+<!--
+<div class="others">
+  <div>
+    <mat-card>
+      <mat-card-header>
+        <div><mat-card-title><span>Nombre of actions</span></mat-card-title></div>
+      </mat-card-header>
+      <mat-card-content>
+        {{ unaryService.actions$ | async}}
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div>
+    <mat-card>
+      <mat-card-header>
+        <div><mat-card-title><span>Coeff multiplcator X</span></mat-card-title></div>
+      </mat-card-header>
+      <mat-card-content>
+        <h6>
+          {{ unaryService.coeffX}}
+        </h6>
+      </mat-card-content>
+    </mat-card>
+  </div>
 </div>
-<p>
-  {{ unaryService.coeffX}}
-</p>
-<p>{{unaryService.actions}}</p>
+-->
+<!--<div [ngClass]="{'counter-positive-10': counter() >= 10, 'counter-negative-10' : counter() <= -10 }">
+  <mat-card class="counter-card">
+    <mat-card-header>
+      <div><mat-icon>calculate</mat-icon></div>
+      <div><mat-card-title>COUNTER</mat-card-title></div>
+    </mat-card-header>
+    <mat-card-content>
+      <h1>
+        {{counter()}}
+      </h1>
+    </mat-card-content>
+  </mat-card>
+</div>-->

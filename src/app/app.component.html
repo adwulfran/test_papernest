@@ -1,7 +1,11 @@
-<div class="wrapper">
-  <div class="nav"></div>
-  <div class="sidebar">
-    <div class="container">
+<mat-grid-list cols="24" rowHeight="1:1">
+
+  <mat-grid-tile [colspan]="24" [rowspan]="1" >
+    <nav></nav>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="3" [rowspan]="9">
+    <div class="sidebar">
+    <div class="linkList">
       <ul>
         <li>
           <a routerLink="/up">
@@ -30,8 +34,13 @@
       </ul>
     </div>
   </div>
-  <div class="main">
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="21" [rowspan]="5" >
     <app-main></app-main>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="21" [rowspan]="4">
     <router-outlet></router-outlet>
-  </div>
-</div>
+  </mat-grid-tile>
+
+
+</mat-grid-list>
