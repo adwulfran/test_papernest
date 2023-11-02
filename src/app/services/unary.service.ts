@@ -1,5 +1,5 @@
 import { Injectable, effect, signal } from '@angular/core';
-import { Subject, filter, scan, tap } from 'rxjs';
+import { Subject, filter, scan } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
